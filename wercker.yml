@@ -4,4 +4,4 @@ build:
     - script:
         name: Creating a new gentoo stage3 image
         code: |
-          docker -v
+          ./stage3/mkimage.sh
