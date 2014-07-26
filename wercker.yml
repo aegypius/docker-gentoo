@@ -13,7 +13,7 @@ deploy:
         name: Load image
         code: |
           docker load < ${DOCKER_NAMESPACE}-gentoo.tar
-          docker tag ${DOCKER_NAMESPACE}/gentoo
+          docker images
     - script:
         name: Registry Authentification
         code: docker login --username=${DOCKER_REGISTRY_USERNAME} --password=${DOCKER_REGISTRY_PASSWORD} --email=${DOCKER_REGISTRY_EMAIL}
