@@ -1,7 +1,7 @@
-box: docker
+box: wercker-labs/docker
 build:
-    steps:
-        - script:
-          name: Creating a new gentoo stage3 image
-          code: |
-            docker -v
+  steps:
+    - script:
+        name: Creating a new gentoo stage3 image
+        code: |
+          docker -v
