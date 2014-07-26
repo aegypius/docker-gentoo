@@ -3,5 +3,7 @@ build:
   steps:
     - script:
         name: Creating a new gentoo stage3 image
-        code: |
-          ./stage3/mkimage.sh
+        code: ./stage3/mkimage.sh
+    - script:
+        name: Pushing image to registry
+        code: docker images
