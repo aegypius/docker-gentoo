@@ -4,11 +4,19 @@ build:
     - script:
         name: Creating a new gentoo stage3 image
         code: ./stage3/mkimage.sh
+    - script:
+        name: Save image
+        code: docker save ${DOCKER_NAMESPACE}/gentoo > ${WERCKER_OUTPUT_DIR}/${DOCKER_NAMESPACE}-gentoo.tar
 deploy:
   steps:
     - script:
+        name: Load image
+        code: |
+          docker load < ${DOCKER_NAMESPACE}-gentoo.tar
+          docker tag ${DOCKER_NAMESPACE}/gentoo
+    - script:
         name: Registry Authentification
-        code: docker login --username=${DOCKER_REGISTRY_USERNAME} --password=${DOCKER_REGISTRY_PASSWORD}
+        code: docker login --username=${DOCKER_REGISTRY_USERNAME} --password=${DOCKER_REGISTRY_PASSWORD} --email=${DOCKER_REGISTRY_EMAIL}
     - script:
         name: Pushing image to registry
         code: docker push ${DOCKER_NAMESPACE}/gentoo
