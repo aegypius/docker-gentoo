@@ -53,7 +53,7 @@ getversion() {
 	wget -q -O/dev/stdout "$url" | grep -v "#" | sed 's/\/.*//'
 }
 
-getstage0() {
+getstage3() {
 	local mirror="$1"
 	local arch="$2"
 	local snapshotver="$3"
