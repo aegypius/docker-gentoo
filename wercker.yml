@@ -6,4 +6,4 @@ build:
         code: ./stage3/mkimage.sh
     - script:
         name: Pushing image to registry
-        code: docker images
+        code: docker push ${DOCKER_NAMESPACE}/gentoo
