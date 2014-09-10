@@ -220,7 +220,7 @@ if [ ! "$stage3" -o ! -e "${target}/${stage3}" ]; then
 fi
 
 echo "importing ${stage3}" 1>&2
-dockerimage=$( bzip2 -cd "${target}/${stage3}" | docker import - $vertag )
+dockerimage=$( bzip2 -cd "${target}/${stage3}" | docker import - )
 
 rm "${target}/${stage3}"
 rmdir "$target"
