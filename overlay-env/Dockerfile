@@ -34,8 +34,12 @@ RUN emerge --regen --quiet
 
 # Upgrade every installed packages
 # ================================
-RUN emerge --nospinner --update --verbose --newuse --deep @system
+RUN emerge --nospinner --update --newuse --deep @system
 RUN etc-update -p
+
+# Installs git
+# ============
+RUN emerge dev-vcs/git
 
 # Adds /overlay to PORTDIR_OVERLAY
 # ================================
